@@ -1149,6 +1149,89 @@
   <span>Built with ♥ in Port Harcourt, Nigeria · <a href="mailto:chilotamfavour816@gmail.com">chilotamfavour816@gmail.com</a></span>
 </footer>
 
+
+
+  
+ <script>
+    const BASE = 'https://raw.githubusercontent.com/chi-fav/cv/main/';
+
+    const designs = [
+      { file: 'christ embassy christmas carol II.png', label: 'Christ Embassy Christmas Carol II' },
+      { file: 'christ embassy christmas carol.png', label: 'Christ Embassy Christmas Carol' },
+      { file: 'CHRIST EMBASSY.png', label: 'Christ Embassy' },
+      { file: 'IMMS SCHOOL I.png', label: 'IMMS School I' },
+      { file: 'IMMS SCHOOL.png', label: 'IMMS School' },
+      { file: 'LATE MR IFEANYI SERVICE OF SONGS.png', label: 'Late Mr Ifeanyi — Service of Songs' },
+      { file: 'MAJOR CHRISTMAS AKASHX.png', label: 'Major Christmas Akashx' },
+      { file: 'Mrs Suokoro Douglas 50th birthday.png', label: 'Mrs Suokoro Douglas 50th Birthday' },
+      { file: 'NIAROC LAND SALE FLYER II.png', label: 'Niaroc Land Sale Flyer II' },
+      { file: 'NIAROC LAND SALE FLYER.png', label: 'Niaroc Land Sale Flyer' },
+      { file: "NWACHA'S HUB FLIER.png", label: "Nwacha's Hub Flier" },
+      { file: 'One on one with father of forex education WEALTH HUB.png', label: 'Forex Education — Wealth Hub' },
+      { file: 'PDP VOTE BAG.png', label: 'PDP Vote Bag' },
+      { file: 'PDP VOTE OO.png', label: 'PDP Vote OO' },
+      { file: 'ROYAL KIDS SUMMER BLAST II.png', label: 'Royal Kids Summer Blast II' },
+      { file: 'ROYAL KIDS SUMMER BLAST.png', label: 'Royal Kids Summer Blast' },
+      { file: 'Samira weds Musa WEDDING PROGRAM.png', label: 'Samira Weds Musa — Wedding Program' },
+      { file: 'Samuel & Hannatu.png', label: 'Samuel & Hannatu' },
+      { file: 'SNOOPHUB.png', label: 'SnoopHub' },
+      { file: 'supportive mums.png', label: 'Supportive Mums' },
+      { file: 'THE WISDOM FOR SUSTAINING WEALTH (Process).png', label: 'The Wisdom for Sustaining Wealth' },
+      { file: 'VIBRANT GENERATION.png', label: 'Vibrant Generation' },
+      { file: 'WORD MAP.png', label: 'Word Map' },
+      { file: 'CHRIST EMBASSY BACKGROUND WALLPAPER.png', label: 'Christ Embassy Background Wallpaper' },
+      { file: 'AuroraVision II.png', label: 'AuroraVision II' },
+    ];
+
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const counter = document.getElementById('carouselCounter');
+    let current = 0;
+
+    // Build slides
+    designs.forEach((d, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.innerHTML = `
+        <img src="${BASE}${encodeURIComponent(d.file)}" alt="${d.label}" loading="lazy" />
+        <div class="slide-label">${d.label}</div>
+      `;
+      track.appendChild(slide);
+
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(n) {
+      current = (n + designs.length) % designs.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      counter.textContent = `${current + 1} / ${designs.length}`;
+    }
+
+    document.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
+    document.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+
+    goTo(0);
+  </script>
+
+  
 <script>
   // Sticky nav
   const navbar = document.getElementById('navbar');
