@@ -384,6 +384,112 @@
   .contact-link-icon { font-size: 1.1rem; color: var(--gold); }
   .contact-link small { display: block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 
+   /* ═══════════════════════════════════════════
+       DESIGN CAROUSEL SECTION
+    ═══════════════════════════════════════════ */
+    #designs {
+      background: var(--bg);
+      padding: 6rem 4rem;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 520px;
+      object-fit: contain;
+      background: var(--surface);
+      padding: 1rem;
+    }
+
+    .carousel-slide .slide-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      padding: 2rem 2rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    /* Arrows */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(10,10,15,0.75);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .carousel-btn:hover {
+      background: var(--accent);
+      color: #0a0a0f;
+      border-color: var(--accent);
+    }
+    .carousel-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .carousel-prev { left: 1rem; }
+    .carousel-next { right: 1rem; }
+
+    /* Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      background: var(--accent);
+      width: 24px;
+      border-radius: 999px;
+    }
+
+    /* Counter */
+    .carousel-counter {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
   /* Contact form */
   .contact-form { display: flex; flex-direction: column; gap: 18px; }
 
